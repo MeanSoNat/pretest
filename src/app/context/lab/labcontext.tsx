@@ -27,20 +27,41 @@ function reducer(state: typeof initialState, action: ACTIONTYPE) {
 
 const fetchQuiz = async () => {
     const query = await fetch('/api/quiz', { method: "GET" }).then(response => response.json());
-
-    return query
+    const shuffleArray = async (array: any) => {
+        for (let i = 0; i < array?.quizs?.length - 1; i++) {
+            const j = Math.floor(Math.random() * (array?.quizs?.length - 1));
+            [array.quizs[i], array.quizs[j]] = [array?.quizs[j], array?.quizs[i]];
+        }
+        const sliceArray = array.quizs.slice(0, 65)
+        array.quizs = sliceArray
+        const Array = await ShuffleAnswer(array)
+        return Array;
+    }
+    
+    const ShuffleAnswer = async (arr: any) => {
+        for (let i = 0; i < arr.quizs.length - 1; i++) {
+            for (let j = 0; j < arr.quizs[i].choices.length - 1; j++) {
+                const T = Math.floor(Math.random() * (arr.quizs[i].choices.length - 1));
+                [arr.quizs[i].choices[j], arr.quizs[i].choices[T]] = [arr.quizs[i].choices[T], arr.quizs[i].choices[j]]
+            }
+        }
+        return arr
+    }
+    
+    const data = await shuffleArray(query)
+    return data
 }
 const submit = async (choices: any) => {
-        const response = await fetch('/api/check',
-            {
-                method: "POST",
-                body: JSON.stringify(choices)
-            })
-        const result = await response.json();
-        let percentage = (result.score / 65) * 100
-        alert(`${result.score} / 65 Score \n Percentage : ${percentage.toFixed(2)} %`)
-        
-    }
+    const response = await fetch('/api/check',
+        {
+            method: "POST",
+            body: JSON.stringify(choices)
+        })
+    const result = await response.json();
+    let percentage = (result.score / 65) * 100
+    alert(`${result.score} / 65 Score \n Percentage : ${percentage.toFixed(2)} %`)
+
+}
 
 
 const LabContextProvider = ({ children }: Readonly<{ children: React.ReactNode }>) => {
@@ -48,7 +69,7 @@ const LabContextProvider = ({ children }: Readonly<{ children: React.ReactNode }
     const [state, dispatch] = useReducer(reducer, initialState);
     const [choices, setChoices] = useState()
     const [score, setScore] = useState<number>(0)
-    
+
     useEffect(() => {
         const callData = async () => {
             const data = await fetchQuiz()
