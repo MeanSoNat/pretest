@@ -1,5 +1,6 @@
 "use client"
 import React, { useContext, useState, useEffect } from 'react'
+import Image from 'next/image'
 import { labContext } from '../context/lab/labcontext'
 
 function QuizForm() {
@@ -31,8 +32,12 @@ function QuizForm() {
         <div className='flex flex-col gap-3 mt-2 mx-3'>
             {
                 quiz?.map((q: any, _: number) => {
+                    
                     return <div key={`${_}`}>
                         <h1 className='text-[18px] font-medium'>{_ + 1} . {q.title}</h1>
+                        {
+                            (q?.img) ? <Image src={q?.img} alt={q.title} width={800} height={500} priority/> : ""
+                        }
                         <div className='ml-5 mt-2'>
 
                             {q?.choices?.map((v: any) => {
