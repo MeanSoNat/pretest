@@ -30,13 +30,15 @@ function QuizForm() {
 
     return (
         <div className='flex flex-col gap-3 mt-2 mx-3'>
+            <div className='ease duration-75 sticky top-0 bg-red-900 text-white text-center m-5 py-3 text-[18px] text-bold rounded-md cursor-pointer hover:bg-black' onClick={() => { submit(choices) }}>Check</div>
+
             {
                 quiz?.map((q: any, _: number) => {
-                    
+
                     return <div key={`${_}`}>
                         <h1 className='text-[18px] font-medium'>{_ + 1} . {q.title}</h1>
                         {
-                            (q?.img) ? <Image src={q?.img} alt={q.title} width={800} height={500} priority/> : ""
+                            (q?.img) ? <Image src={q?.img} alt={q.title} width={800} height={500} priority /> : ""
                         }
                         <div className='ml-5 mt-2'>
 
@@ -59,7 +61,6 @@ function QuizForm() {
                 }
                 )
             }
-            <div className='bg-red-900 text-white text-center m-5 py-3 text-[18px] text-bold rounded-md cursor-pointer hover:bg-red-900/20' onClick={() => { submit(choices) }}>Submit</div>
         </div>
     )
 }

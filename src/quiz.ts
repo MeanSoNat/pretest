@@ -19,7 +19,7 @@ class Quiz {
 
   protected checkQuiz() {
     const quiz = this.arr.quizs;
-
+    
     quiz.map((submittedQuiz: any) => {
       if (submittedQuiz.isMultiple) {
         this.isMultiple(submittedQuiz);
@@ -42,6 +42,7 @@ class Quiz {
         flag = 0
       }
     });
+    
   };
 
   private notMultiple = (submittedQuiz: any) => {
@@ -49,7 +50,7 @@ class Quiz {
         if (selectChoice.selected == true && selectChoice.isCorrect == true) {
             this.score = this.score + 1
         }
-    })
+      })
   };
 }
 
