@@ -1130,7 +1130,7 @@
                   "selected": false,
                   "id": 2,
                   "Answer": "Cloud Data Loss Prevention API",
-                  "isCorrect": false
+                  "isCorrect": true
               },
               {
                   "selected": false,
@@ -1142,7 +1142,7 @@
                   "selected": false,
                   "id": 4,
                   "Answer": "Web Security Scanner",
-                  "isCorrect": true
+                  "isCorrect": false
               }
           ]
       },
