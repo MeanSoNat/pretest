@@ -3229,25 +3229,25 @@
                 {
                     "selected": false,
                     "id": 2,
-                    "Answer": "Organization Administrator",
-                    "isCorrect": false
-                },
-                {
-                    "selected": false,
-                    "id": 3,
                     "Answer": "Billing Account Viewer",
                     "isCorrect": true
                 },
                 {
                     "selected": false,
-                    "id": 4,
+                    "id": 3,
                     "Answer": "Billing Account Costs Manager",
                     "isCorrect": true
                 },
                 {
-                    "selected": false,
-                    "id": 5,
-                    "Answer": "Billing Account User",
+                "selected": false,
+                "id": 4,
+                "Answer": "Billing Account User",
+                    "isCorrect": false
+                },
+                {
+                "selected": false,
+                "id": 5,
+                "Answer": "Project Creaetor",
                     "isCorrect": false
                 }
             ]
@@ -5222,9 +5222,16 @@
                 {
                     "selected": false,
                     "id": 4,
-                    "Answer": "A VPC firewall rule is allowing traffic between source/targets based on the same service account with priority 999. E . A VPC firewall rule is allowing traffic between source/targets based on the same service account with priority 1001.",
+                    "Answer": "A VPC firewall rule is allowing traffic between source/targets based on the same service account with priority 999. ",
                     "isCorrect": true
+                },
+                {
+                    "selected": false,
+                    "id": 5,
+                    "Answer": "A VPC firewall rule is allowing traffic between source/targets based on the same service account with priority 1001.",
+                    "isCorrect": false
                 }
+
             ]
         },
         {
