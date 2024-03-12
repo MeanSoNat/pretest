@@ -32,7 +32,7 @@ const fetchQuiz = async () => {
             const j = Math.floor(Math.random() * (array?.quizs?.length - 1));
             [array.quizs[i], array.quizs[j]] = [array?.quizs[j], array?.quizs[i]];
         }
-        const sliceArray = array.quizs.slice(0, 65)
+        const sliceArray = array.quizs.slice(0, 45)
         array.quizs = sliceArray
         const Array = await ShuffleAnswer(array)
         return Array;
@@ -58,8 +58,8 @@ const submit = async (choices: any) => {
             body: JSON.stringify(choices)
         })
     const result = await response.json();
-    let percentage = (result.score / 65) * 100
-    alert(`${result.score} / 65 Score \n Percentage : ${percentage.toFixed(2)} %`)
+    let percentage = (result.score / 45) * 100
+    alert(`${result.score} / 45 Score \n Percentage : ${percentage.toFixed(2)} %`)
 
 }
 
